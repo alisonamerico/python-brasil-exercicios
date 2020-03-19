@@ -2,6 +2,15 @@
 
 
 def soma(numero1: int, numero2: int) -> int:
+    """Função que retorna a soma de dois números
+    
+    Arguments:
+        numero1 {int} -- Primeiro número
+        numero2 {int} -- Segundo número
+    
+    Returns:
+        int -- retorna a soma de dois números
+    """
     return numero1 + numero2
 
 
