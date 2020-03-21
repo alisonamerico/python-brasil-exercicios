@@ -1,5 +1,5 @@
 """
-Faça um Programa que pergunte quanto você ganha por hora
+8. Faça um Programa que pergunte quanto você ganha por hora
 e o número de horas trabalhadas no mês. 
 Calcule e mostre o total do seu salário no referido mês. 
 """
@@ -13,7 +13,7 @@ def calcula_salario(valor_1_hora: int, valor_horas_mes: int) -> int:
         valor_horas_mes {int} -- Quantidade de horas trabalhadas no mês.
     
     Returns:
-        int -- Retorno o salaário do mês.
+        int -- Retorna o salaário do mês.
     """
     total_salario_mes = valor_1_hora * valor_horas_mes
     return total_salario_mes
