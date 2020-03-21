@@ -23,7 +23,8 @@ def test_pede_numero() -> None:
 
 
 if __name__ == "__main__":
-    pede_numero(int(input("Informe um número: ")))
+    numero = int(input("Informe um número: "))
+    print(pede_numero(numero))
 
 
 # # Versão 2 com input mocado. Nem usei a lib:
@@ -40,4 +41,3 @@ if __name__ == "__main__":
 
 #     input = input_mocado
 #     assert pede_numero() == "O número informado foi 1"
-
