@@ -28,7 +28,7 @@ def test_farenheit_celsius() -> None:
 
 
 if __name__ == "__main__":
-    celsius = float(input("Informe um valor temperatura em Farenheit: "))
+    farenheit = float(input("Informe um valor temperatura em Farenheit: "))
     print(
-        f"A temperatura convertida para graus Celsius é: {farenheit_celsius(celsius)}"
+        f"A temperatura convertida para graus Celsius é: {farenheit_celsius(farenheit)}"
     )
