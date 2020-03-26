@@ -10,6 +10,6 @@ Pacotes usados :package: :
 - pytest = framework para os testes
 - mypyls = verificador de tipo estático opcional para Python.
 
-Para criar ambiete vitual :spider_web: e isolar os pacotes :package: instalados:
+Para criar ambiente vitual :spider_web: e isolar os pacotes :package: instalados:
 
 - Pipenv
