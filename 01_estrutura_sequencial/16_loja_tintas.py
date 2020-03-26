@@ -78,7 +78,6 @@ if __name__ == "__main__":
     tamanho_metro_quadrado = float(
         input(f"Quantos metros quadrados devem ser pintados: ")
     )
-    preco_lata = 80.0
     latas = calcula_qtd_latas(tamanho_metro_quadrado)
     preco_total = calcula_preco_total(tamanho_metro_quadrado)
 
