@@ -11,35 +11,6 @@ e na variável multa o valor da multa que João deverá pagar.
 Imprima os dados do programa com as mensagens adequadas. 
 """
 
-"""
-peso
-peso_maximo_estabelecido = 50kg
-excesso = peso - peso_maximo_estabelecido
-multa_por_quilo_excedente = 4
-multa = multa_por_quilo_excedente * excesso
-
-
-
-if peso <=peso_maximo_estabelecido:
-    print("Peso informado foi: {peso}")
-else:
-    print(f"Peso informado: {peso}Kg, ultrapassou o peso estabelecido pelo regulamento de pesca do estado de São Paulo (50 quilos), 
-        deverá pagar uma multa de R$ 4,00 por quilo excedente.  ")
-    print(f"Total da multa: {multa}")
-"""
-
-
-# def peso_maior_igual_a_peso_maximo_estabelecido(
-#     peso: float, peso_maximo_estabelecido: float
-# ) -> float:
-#     return 50
-
-
-# def test_peso_maior_igual_a_peso_maximo_estabelecido() -> None:
-#     peso = 40
-#     resultado_esperado = 50
-#     assert peso_maior_igual_a_peso_maximo_estabelecido(peso) == resultado_esperado
-
 
 def calcula_excesso(peso: float, peso_maximo_estabelecido: float) -> float:
     """Função que calcula a quantidade de peixes maior que o estabelecido 
