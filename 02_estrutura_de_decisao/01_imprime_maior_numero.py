@@ -4,6 +4,15 @@
 
 
 def imprime_maior_numero(numero1: int, numero2: int) -> int:
+    """Função que pede dois números e retorna o maior.
+    
+    Arguments:
+        numero1 {int} -- primeiro número
+        numero2 {int} -- segundo número
+    
+    Returns:
+        int -- Retorna o maior número
+    """
     maior_numero = numero1
     if numero2 > maior_numero:
         maior_numero = numero2
@@ -11,6 +20,7 @@ def imprime_maior_numero(numero1: int, numero2: int) -> int:
 
 
 def test_imprime_maior_numero() -> None:
+    """assert imprime_maior_numero(numero1, numero2) -> maior_numero"""
     numero1 = 2
     numero2 = 4
     maior_numero = numero2
