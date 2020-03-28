@@ -12,49 +12,33 @@ Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, consid
 """
 
 
-def calcula_18_litros(tamanho_metro_quadrado: float) -> float:
-    """Função que calcula a quantidade de 18 litros por metro quadrado
-    
+from math import ceil
+
+
+def calcula_litros(tamanho_metro_quadrado: float) -> float:
+    """Função que calcula a quantidade de litros por metro quadrado
+
     Arguments:
         tamanho_metro_quadrado {float} -- metro quadrado informado
-    
-    Returns:
-        float -- Retorna a quantidade de litros por metro quadrado calculado.
-    """
-    litros = tamanho_metro_quadrado / 3
-    return round(litros, 2)
 
-
-def test_18_litros() -> None:
-    """calcula_18_litros(tamanho_metro_quadrado) -> litros_calculados"""
-    tamanho_metro_quadrado = 200
-    litros_calculados = round(66.66666666666, 2)
-
-    assert calcula_18_litros(tamanho_metro_quadrado) == litros_calculados
-
-
-def calcula_3_6_litros(tamanho_metro_quadrado: float) -> float:
-    """Função que calcula a quantidade de 3.6 litros por metro quadrado
-    
-    Arguments:
-        tamanho_metro_quadrado {float} -- metro quadrado informado
-    
     Returns:
         float -- Retorna a quantidade de litros por metro quadrado calculado.
     """
     litros = (tamanho_metro_quadrado / 6) * 0.1
-    return round(litros, 2)
+    if litros <= 0:
+        litros = 1
+    return ceil(litros)
 
 
-def test_3_6_litros() -> None:
-    """calcula_3_6_litros(tamanho_metro_quadrado) -> litros_calculados"""
+def test_litros() -> None:
+    """calcula_litros(tamanho_metro_quadrado) -> litros_calculados"""
     tamanho_metro_quadrado = 200
-    litros_calculados = round(3.33333333333, 2)
+    litros_calculados = 4
 
-    assert calcula_3_6_litros(tamanho_metro_quadrado) == litros_calculados
+    assert calcula_litros(tamanho_metro_quadrado) == litros_calculados
 
 
-def calcula_qtd_latas_18_litros(tamanho_metro_quadrado: float) -> float:
+def calcula_qtd_latas_18_litros(tamanho_metro_quadrado: float) -> int:
     """Função que calcula quantidade de latas de 18 litros a serem usadas por metro quadrado.
 
     Arguments:
@@ -64,14 +48,14 @@ def calcula_qtd_latas_18_litros(tamanho_metro_quadrado: float) -> float:
         float -- Retorna a quantidade de latas de 18 litros por metro quadrado calculado.
     """
     capacidade_da_lata = 18
-    latas = calcula_18_litros(tamanho_metro_quadrado) / capacidade_da_lata
-    return latas
+    latas = ceil(calcula_litros(tamanho_metro_quadrado) / capacidade_da_lata)
+    return latas  # 1
 
 
 def test_qtd_latas_18_litros() -> None:
     """assert calcula_qtd_latas_18(tamanho_metro_quadrado) -> qtd_latas_calculadas"""
     tamanho_metro_quadrado = 200
-    qtd_latas_calculadas = 4
+    qtd_latas_calculadas = 1
     assert (
         round(calcula_qtd_latas_18_litros(tamanho_metro_quadrado))
         == qtd_latas_calculadas
@@ -88,14 +72,14 @@ def calcula_qtd_galao_3_6_litros(tamanho_metro_quadrado: float) -> float:
         float -- Retorna a quantidade de 3.6 galões por metro quadrado calculado.
     """
     capacidade_do_galao = 3.6
-    galoes = calcula_3_6_litros(tamanho_metro_quadrado) / capacidade_do_galao
-    return galoes
+    galoes = calcula_litros(tamanho_metro_quadrado) / capacidade_do_galao
+    return ceil(galoes)
 
 
 def test_qtd_galao_3_6_litros() -> None:
     """assert calcula_qtd_galoes_3_6(tamanho_metro_quadrado) -> qtd_latas_calculadas"""
     tamanho_metro_quadrado = 200
-    qtd_galoes_calculados = 1
+    qtd_galoes_calculados = 2
     assert (
         round(calcula_qtd_galao_3_6_litros(tamanho_metro_quadrado))
         == qtd_galoes_calculados
@@ -120,7 +104,7 @@ def calcula_preco_lata_18_litros(tamanho_metro_quadrado: float) -> float:
 def test_preco_lata_18_litros() -> None:
     """assert calcula_preco_lata_18_litros(tamanho_metro_quadrado) -> preco_total_area_a_ser_pintada"""
     tamanho_metro_quadrado = 200
-    preco_total_area_a_ser_pintada = 296.31
+    preco_total_area_a_ser_pintada = 80
     assert (
         round(calcula_preco_lata_18_litros(tamanho_metro_quadrado), 2)
         == preco_total_area_a_ser_pintada
@@ -145,7 +129,7 @@ def calcula_preco_galao_3_6_litros(tamanho_metro_quadrado: float) -> float:
 def test_preco_lata_3_6_litros() -> None:
     """assert calcula_preco_galao_3_6_litros(tamanho_metro_quadrado) -> preco_total_area_a_ser_pintada"""
     tamanho_metro_quadrado = 200
-    preco_total_area_a_ser_pintada = 23.12
+    preco_total_area_a_ser_pintada = 50
     assert (
         round(calcula_preco_galao_3_6_litros(tamanho_metro_quadrado), 2)
         == preco_total_area_a_ser_pintada
@@ -154,23 +138,23 @@ def test_preco_lata_3_6_litros() -> None:
 
 def calcula_valor_total_misto(tamanho_metro_quadrado: float) -> float:
     """Função que calcula o valor total da soma entre latas e galões.
-    
+
     Arguments:
         tamanho_metro_quadrado {float} -- tamanho do metro quadrado
-    
+
     Returns:
         float -- valor total calculado da soma entre latas e galões
     """
-    valor_misto = calcula_qtd_latas_18_litros(
+    valor_misto = calcula_preco_lata_18_litros(
         tamanho_metro_quadrado
-    ) + calcula_qtd_galao_3_6_litros(tamanho_metro_quadrado)
+    ) + calcula_preco_galao_3_6_litros(tamanho_metro_quadrado)
     return valor_misto
 
 
 def test_valor_total_misto() -> None:
     """assert (calcula_valor_total_misto(tamanho_metro_quadrado) -> valor_total_misto_calculado"""
     tamanho_metro_quadrado = 200
-    valor_total_misto_calculado = 4.63
+    valor_total_misto_calculado = 130
     assert (
         round(calcula_valor_total_misto(tamanho_metro_quadrado), 2)
         == valor_total_misto_calculado
@@ -181,26 +165,37 @@ if __name__ == "__main__":
     tamanho_metro_quadrado = float(
         input(f"Quantos metros quadrados devem ser pintados: ")
     )
-    latas_18_litros = calcula_qtd_latas_18_litros(tamanho_metro_quadrado)
+    latas_18_litros = ceil(calcula_qtd_latas_18_litros(tamanho_metro_quadrado))
     preco_lata_18_litros = calcula_preco_lata_18_litros(tamanho_metro_quadrado)
-    galao_3_6_litros = calcula_qtd_galao_3_6_litros(tamanho_metro_quadrado)
+    galao_3_6_litros = ceil(calcula_qtd_galao_3_6_litros(tamanho_metro_quadrado))
     preco_galao_3_6_litros = calcula_preco_galao_3_6_litros(tamanho_metro_quadrado)
     valor_total_misto = calcula_valor_total_misto(tamanho_metro_quadrado)
 
     print()
+    if latas_18_litros <= 0 or galao_3_6_litros <= 0:
+        latas_18_litros = 1
+        galao_3_6_litros = 1
 
     if latas_18_litros > 1:
-        print(f"Você usará {round(latas_18_litros)} latas de tinta")
+        print(
+            f"O preço de {latas_18_litros} latas de tinta de 18 litros, custam: R$ {round(preco_lata_18_litros, 2)}"
+        )
     else:
-        print(f"Você usará {round(latas_18_litros)} lata de tinta")
-    print(f"O preço da lata de 18 litros é: R$ {round(preco_lata_18_litros, 2)}")
+        print(
+            f"O preço de {latas_18_litros} lata de tinta de 18 litros, custa: R$ {round(preco_lata_18_litros, 2)}"
+        )
 
     print()
 
     if galao_3_6_litros > 1:
-        print(f"Você usará {round(galao_3_6_litros)} galões de tinta")
+        print(
+            f"O preço de {galao_3_6_litros} galões de tinta de 3.6 litros, custam: R$ {round(preco_galao_3_6_litros, 2)}"
+        )
     else:
-        print(f"Você usará {round(galao_3_6_litros)} galão de tinta")
-    print(f"O preço do galão de 3.6 litros é: R$ {round(preco_galao_3_6_litros, 2)}")
+        print(
+            f"O preço de {galao_3_6_litros} galão de tinta de 3.6 litros, custa: R$ {round(preco_galao_3_6_litros, 2)}"
+        )
+
     print()
+
     print(f"Valor total misto (latas + galões): R$ {round(valor_total_misto, 2)}")
