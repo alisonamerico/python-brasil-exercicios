@@ -5,6 +5,14 @@ Conforme a letra escrever: F - Feminino, M - Masculino, Sexo Inválido.
 
 
 def valida_sexo(letra: str) -> str:
+    """Função que valida sexo.
+    
+    Arguments:
+        letra {str} -- letra a ser validada.
+    
+    Returns:
+        str -- Retorna "Masculino", "Feminino" ou "Sexo Inválido."
+    """
     if letra.upper() == "M":
         return "Masculino"
     elif letra.upper() == "F":
