@@ -21,7 +21,7 @@ def calcula_maior_de_3_numeros(lista_numeros: List[float]) -> float:
 
 
 def test_maior_de_3_numeros() -> None:
-    """assert calcula_maior_de_3_numeros(lista_numeros) == maior_numero_da_lista"""
+    """assert calcula_maior_de_3_numeros(lista_numeros) -> maior_numero_da_lista"""
     lista_numeros = [6.0, 9.3, 30]
     maior_numero_da_lista = 30
     assert calcula_maior_de_3_numeros(lista_numeros) == maior_numero_da_lista
