@@ -22,6 +22,7 @@ def valida_sexo(letra: str) -> str:
 
 
 def test_valida_sexo() -> None:
+    """assert valida_sexo(letra) -> valor_esperado"""
     letra = "M"
     valor_esperado = "Masculino"
     assert valida_sexo(letra) == valor_esperado
