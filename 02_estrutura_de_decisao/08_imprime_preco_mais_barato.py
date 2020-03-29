@@ -10,10 +10,19 @@ lista_de_preco = []
 
 
 def preco_produto_mais_barato(lista_de_preco: List[float]) -> float:
+    """Função que verifica o produto com menor preço em uma lista.
+    
+    Arguments:
+        lista_de_preco {List[float]} -- Lista a ser verificada.
+    
+    Returns:
+        float -- Retorna o produto com menor preco.
+    """
     return min(lista_de_preco)
 
 
 def test_preco_produto() -> None:
+    """assert preco_produto_mais_barato(lista_de_preco) -> preco_mais_barato"""
     lista_de_preco = [49.90, 170.00, 32.50]
     preco_mais_barato = 32.50
     assert preco_produto_mais_barato(lista_de_preco) == preco_mais_barato
